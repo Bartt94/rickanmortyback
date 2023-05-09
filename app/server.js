@@ -12,14 +12,14 @@ cors({
     allowedHeaders: "*",
 }));
 
-var port = process.env.PORT || 8080 ; // establecemos nuestro puerto
+var port = process.env.PORT || 8000 ; // establecemos nuestro puerto
 
 app.get('/', function(req, res) {
   res.json({ mensaje: '¡Hola Mundo!' })   
 });
 
 app.get("/personajes",(req,res)=>{
-    request(process.env.URLAPIPERSONAJES,(error,response,body)=>{
+    request("https://rickandmortyapi.com/api/character/",(error,response,body)=>{
 
       if (error) {
           return res.status(400).json({
